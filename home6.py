@@ -5,6 +5,11 @@ import RPi.GPIO as GPIO
 import os
 import glob
 import time
+
+# Made by:
+# Burak Vanli
+# 27 Jan 2018
+
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
@@ -172,16 +177,16 @@ def hidroforON():
 		hf.close()
 
 
-		
-		
+
+
 def exitProgram():
 	print("Exit Button pressed")
 	GPIO.cleanup()
-	win.quit()	
+	win.quit()
 
 def lampturnON():
 
-	if GPIO.input(13)==1:#TURN ON 
+	if GPIO.input(13)==1:#TURN ON
 		lampON()
 
 def lampturnOFF():
@@ -196,15 +201,15 @@ def tick():
 	if time2 != time1:
 		time1 = time2
 		clock.config(text=time2)
-		
-                if int(time.strftime('%H')) < 6 and int(time.strftime('%S')) == 0 : 
+
+                if int(time.strftime('%H')) < 6 and int(time.strftime('%S')) == 0 :
 
 			if int(int(time.strftime('%M'))/15)%2 == 1:
                 		lampturnOFF()
 			else:
 				lampturnON()
 
-		
+
 		if int(time.strftime('%H')) == 16 and int(time.strftime('%M')) < 1 and int(time.strftime('%S')) == 1:
 			lampturnON()
 
@@ -224,7 +229,7 @@ def tick():
                                 GPIO.output(32, GPIO.HIGH)
                                 print 'VANA KAPAT'
                                 # Vanayi kapat
-                        
+
                 #4 YOLLU VANA EGZERSIZ HAREKETI
 
 
@@ -233,16 +238,16 @@ def tick():
 
 
 
-			
+
 		#if int(time.strftime('%H')) == 0 and int(time.strftime('%M')) < 1:
 		#	lampturnOFF()
 
 
 
-        
 
 
-	
+
+
 
 	clock.after(200, tick)
 win.title("Yazarlar 22")
@@ -261,7 +266,7 @@ SICAKSUButton = Button(win, font = myFont, command = SICAKSUON, height = 1, widt
 SICAKSUButton.grid(row = 6, column = 1)
 hidroButton = Button(win, font = myFont, command = hidroforON, height = 1, width =12 )
 hidroButton.grid(row = 7, column = 1)
-exitButton  = Button(win, text = "SON", font = myFont, command = exitProgram, height =1 , width = 6) 
+exitButton  = Button(win, text = "SON", font = myFont, command = exitProgram, height =1 , width = 6)
 exitButton.grid(row = 8, column = 1)
 
 def updateTestLabel():
@@ -311,9 +316,7 @@ if hidroState == '0':
         GPIO.output(33, GPIO.HIGH)
         hidroButton["text"] = "HIDRO OFF"
 
-        
+
 
 tick()
 mainloop()
-
-
