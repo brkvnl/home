@@ -9,6 +9,7 @@ import time
 # Made by:
 # Burak Vanli
 # 27 Jan 2018
+# Trial
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
