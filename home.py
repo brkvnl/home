@@ -100,7 +100,7 @@ def boilerON():
         bf.close()
     else:
         GPIO.output(12, GPIO.HIGH)
-		GPIO.output(29,GPIO.HIGH)
+        GPIO.output(29,GPIO.HIGH)
         GPIO.output(31,GPIO.HIGH)
         bf.write('0')
         boilerButton["text"] = "ISITMA OFF"
@@ -120,7 +120,7 @@ def rainbirdON():
 		GPIO.output(11, GPIO.HIGH)
 		wf.write('0')
 		waterButton["text"] = "SULAMA OFF"
-        logging.info(time1, 'WATER OFF')
+		logging.info(time1, 'WATER OFF')
 		wf.close()
 
 def lampON():
@@ -200,8 +200,9 @@ def tick():
             else:
                 lampturnON()
 
-		if int(time.strftime('%H')) == 16 and int(time.strftime('%M')) < 1 and int(time.strftime('%S')) == 1:
-            lampturnON()
+        if int(time.strftime('%H')) == 16 and int(time.strftime('%M')) < 1 and int(time.strftime('%S')) == 1:
+
+        lampturnON()
 
         #4 YOLLU VANA SIKISMASINI ONLEYICI EGZERSIZ HAREKETI
         if GPIO.input(12) == 1:
@@ -217,8 +218,6 @@ def tick():
                     # Vanayi kapat
         #4 YOLLU VANA EGZERSIZ HAREKETI
 
-		#if int(time.strftime('%H')) == 0 and int(time.strftime('%M')) < 1:
-		#	lampturnOFF()
 
         clock.after(200, tick)
 
