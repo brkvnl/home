@@ -222,12 +222,12 @@ def tick():
                         # Isitma kapaliysa
                         if int(time.strftime('%H')) % 2 == 0 and GPIO.input(32) == 1:
                                 GPIO.output(32, GPIO.LOW)
-                                print 'VANA AC'
+                                print time1, 'VANA AC'
                                 # Vanayi ac
 
                         if int(time.strftime('%H')) % 2 == 1 and GPIO.input(32) == 0:
                                 GPIO.output(32, GPIO.HIGH)
-                                print 'VANA KAPAT'
+                                print time1, 'VANA KAPAT'
                                 # Vanayi kapat
                         
                 #4 YOLLU VANA EGZERSIZ HAREKETI
