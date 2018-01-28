@@ -10,7 +10,7 @@ import time
 # Burak Vanli
 # 27 Jan 2018
 
-# master
+# 0.8
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
