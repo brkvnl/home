@@ -9,7 +9,8 @@ import time
 # Made by:
 # Burak Vanli
 # 27 Jan 2018
-# Trial
+
+# master
 
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -219,12 +220,12 @@ def tick():
                 #4 YOLLU VANA SIKISMASINI ONLEYICI EGZERSIZ HAREKETI
 		if GPIO.input(12) == 1:
                         # Isitma kapaliysa
-                        if (int(time.strftime('%H')) == 0 or int(time.strftime('%H')) == 12) and GPIO.input(32) == 1:
+                        if int(time.strftime('%M')) % 2 == 0 and GPIO.input(32) == 1:
                                 GPIO.output(32, GPIO.LOW)
                                 print 'VANA AC'
                                 # Vanayi ac
 
-                        if (int(time.strftime('%H')) == 0 or int(time.strftime('%H')) == 12) and GPIO.input(32) == 0:
+                        if int(time.strftime('%M')) % 2 == 1 and GPIO.input(32) == 0:
                                 GPIO.output(32, GPIO.HIGH)
                                 print 'VANA KAPAT'
                                 # Vanayi kapat
