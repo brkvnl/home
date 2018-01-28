@@ -217,16 +217,14 @@ def tick():
 
 
                 #4 YOLLU VANA SIKISMASINI ONLEYICI EGZERSIZ HAREKETI
-		if (GPIO.input(12) == 1):
+		if GPIO.input(12) == 1:
                         # Isitma kapaliysa
-                        if ((int(time.strftime('%H')) == 0) or (int(time.strftime('%H')) == 12)) and GPIO.output(32) == 1:
-                                # Saat 12 veya o ise VE vana kapali ise
+                        if int(time.strftime('%S')) == 0 and GPIO.output(32) == 1:
                                 GPIO.output(32, GPIO.LOW)
                                 print 'VANA AC'
                                 # Vanayi ac
 
-                        if ((int(time.strftime('%H')) == 1) or (int(time.strftime('%H')) == 13)) and GPIO.output(32) == 0:
-                                # Saat 12 veya o ise VE vana kapali ise
+                        if int(time.strftime('%S')) == 1 and GPIO.output(32) == 0:
                                 GPIO.output(32, GPIO.HIGH)
                                 print 'VANA KAPAT'
                                 # Vanayi kapat
