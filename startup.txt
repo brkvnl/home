@@ -1,0 +1,4 @@
+this is the way how home3 program runs at startup
+
+cd ~/.config/lxsession/LXDE-pi
+sudo nano autostart
